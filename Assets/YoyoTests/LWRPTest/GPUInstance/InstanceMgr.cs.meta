@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2d29f4f381aac0f498af24f5e62548ef
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - meshRock: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  - matRock: {fileID: 2100000, guid: f5ab6bf5d018ed342b36af3190857916, type: 2}
+  - meshGrass: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
