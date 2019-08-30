@@ -24,11 +24,15 @@ public class YoyoPass : ScriptableRenderPass
 
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
     {
+        //no need for instance
+        if (instanceData == null) {
+            return;
+        }
         CommandBuffer buff = CommandBufferPool.Get(m_ProfilerTag);
         //Rock
         MaterialPropertyBlock block = new MaterialPropertyBlock();
         block.SetVectorArray("_ColorTest",instanceData.colorArray);
-        buff.DrawMeshInstanced(instanceData.meshRock, 0, instanceData.matRock, 0, instanceData.matrixArray, instanceData.matrixArray.Length, block);
+        buff.DrawMeshInstanced(instanceData.meshGrass, 0, instanceData.matRock, 0, instanceData.matrixArray, instanceData.matrixArray.Length, block);
 
         context.ExecuteCommandBuffer(buff); 
         CommandBufferPool.Release(buff);

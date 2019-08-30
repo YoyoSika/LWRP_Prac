@@ -7,8 +7,12 @@ public class InstanceMgr : MonoBehaviour
     public static InstanceMgr mInstance;
     public static InstanceMgr GetInstance()
     {
-        if (mInstance == null)
-            mInstance = GameObject.Find("InstanceMgr").GetComponent<InstanceMgr>();
+        if (mInstance == null) {
+            GameObject mgr = GameObject.Find("InstanceMgr");
+            if (mgr == null)
+                return null;
+            mInstance = mgr.GetComponent<InstanceMgr>();
+        }
 
         return mInstance;
     }
