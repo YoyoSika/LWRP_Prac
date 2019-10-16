@@ -101,16 +101,17 @@
 
 
 
-					half3 additionLight;
-					half3 additionLightColor;
+					half3 additionLight = half3(0,0,0);
+					half3 additionLightColor = half3(0, 0, 0);
 
-					int pixelLightCount = _AdditionalLightsCount.x; //GetAdditionalLightsCount();//_AdditionalLightsCount.x , unity_LightData.y
-					for (int i = 0; i < pixelLightCount; ++i)
+					int pixelLightCount =GetAdditionalLightsCount();
+					for (int i = 0; i < pixelLightCount; i++)
 					{
 						Light light = GetAdditionalLight(i, worldPos);
 						additionLightColor = light.color * light.distanceAttenuation;
 						additionLight += LightingLambert(additionLightColor, light.direction, worldNormal);
 					}
+
 
 					half3 mainLight = _MainLightColor * LdotN;
 
